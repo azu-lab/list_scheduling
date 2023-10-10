@@ -1,12 +1,17 @@
 
 
 class Task:
-    def __init__(self, wcet: int, release_time: int):
+    def __init__(self, idx: int, wcet: int, release_time: int):
+        self._idx = idx
         self._wcet = wcet
         self._release_time = release_time
         self._start_time = release_time
         self._finish_time = self._start_time + wcet
         self._core = -1
+
+    @property
+    def idx(self) -> int:
+        return self._idx
 
     @property
     def wcet(self) -> int:
@@ -15,6 +20,10 @@ class Task:
     @wcet.setter
     def wcet(self, n: int):
         self._wcet = n
+
+    @property
+    def release_time(self) -> int:
+        return self._release_time
 
     @property
     def start_time(self) -> int:
